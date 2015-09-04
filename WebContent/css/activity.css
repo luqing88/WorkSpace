@@ -1,0 +1,273 @@
+@charset "utf-8";
+/* CSS Document */
+.borderNav .preNav
+{
+	width:988px;
+}
+.activityList
+{
+	/*width:958px;
+	border:1px solid #eee;
+	background:#fff;
+	overflow:hidden;
+	padding:15px;*/
+}
+.activityList ul
+{
+	/*width:980px;*/
+	width:1100px;
+	*margin-bottom:30px;
+	_margin-bottom:0px;
+}
+.activityList li
+{
+	/*width:310px;
+	margin-right:15px;
+	margin-bottom:30px;
+	height:270px;
+	overflow:hidden;*/
+	width:310px;
+	margin-right:27px;
+	margin-bottom:30px;
+	height:306px;
+	overflow:hidden;
+	background:#fff;
+	border:1px solid #eee;
+}
+.activityList li dt
+{
+	/*width:310px;
+	height:160px;
+	overflow:hidden;*/
+	width:310px;
+	overflow:hidden;
+}
+.activityList li dt img
+{
+	width:310px;
+}
+.activityList li dd
+{
+	/*width:310px;*/
+	width:290px;
+	padding:0 10px;
+}
+.activityList li dd h3
+{
+	line-height:24px;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+.activityIcon
+{
+	line-height:18px;
+	padding:0 10px;
+	font-size:12px;
+	font-weight:normal;
+	border:1px solid #eaeaea;
+	/*background:#fafafa;*/
+	color:#999;
+	font-family:"宋体", Arial, sans-serif;
+	display:block;
+	margin-top:2px;
+	/*border-radius:2px;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;*/
+}
+.activityAction
+{
+	border:1px solid #CFE3B2;
+	/*background:#F8FFF2;*/
+	color:#7BB724;
+	padding:0 5px;
+}
+.activityHerald
+{
+	border:1px solid #c9e9f7;
+	/*background:#eff8fc;*/
+	color:#0997d5;
+	padding:0 5px;
+}
+.activityList li dd h3 b
+{
+	font-weight:normal;
+	color:#8a8a8a;
+}
+.activityList li dd p
+{
+	line-height:24px;
+	color:#8a8a8a;
+}
+.activityList li dd .activityTime
+{
+	color:#454545;
+	margin-bottom:5px;
+}
+.activityList li dd .activityTime span
+{
+	color:#666;
+}
+
+.activityTop
+{
+	width:100%;
+}
+.activityTop h3
+{
+	width:100%;
+	font-size:24px;
+	height:30px;
+	line-height:30px;
+	margin-bottom:10px;
+}
+.activityTop h3
+{
+	width:100%;
+	font-size:24px;
+	line-height:30px;
+	margin-bottom:10px;
+}
+.activityTop h3 span
+{
+	font-size:24px;
+	line-height:30px;
+	font-weight:normal;
+}
+.activityTop h3 .activityIcon 
+{
+	margin-top:7px;
+	*margin-top:5px;
+}
+.activityTop .activityCover
+{
+	width:100%;
+	height:382px;
+	overflow:hidden;
+}
+.activityDetail .preNav
+{
+	width:738px;
+}
+.activityDetailCon
+{
+	width:720px;
+	padding:10px 9px;
+	border:1px solid #eee;
+	border-top:none;
+	background:#fff;
+	line-height:24px;
+	color:#454545;
+}
+
+.hotActivityBox
+{
+	margin-top:40px;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #EEEEEE;
+    width: 238px;
+}
+.hotActivityList
+{
+	width:220px;
+	padding:9px 9px 0;
+}
+.hotActivityList li
+{
+	width:100%;
+	display:block;
+}
+.hotActivityList li dt,
+.hotActivityList li dt img
+{
+	width:220px;
+	height:114px;
+}
+.hotActivityList li dd
+{
+	line-height:24px;
+}
+.hotActivityList li dd h4
+{
+	line-height:24px;
+}
+.hotActivityList li dd p
+{
+	line-height:24px;
+	color:#999;
+	margin-bottom:5px;
+}
+.hotActivityList li dd .activityTime
+{
+	color:#454545;
+	margin-bottom:0;
+}
+.hotActivityList dl
+{
+	padding-top:10px;
+	border-bottom:1px dashed #ddd;
+}
+.hotActivityList .firstOne
+{
+	padding-top:0;
+}
+.hotActivityList .lastOne
+{
+	border-bottom:none;
+}
+
+.activityApply
+{
+	width:738px;
+	background:#fff;
+	border:1px solid #eee;
+}
+.activityApply .activityApplyMessage
+{
+	width:325px;
+	padding:20px;
+}
+.activityApply .activityApplyMessage p
+{
+	line-height:30px;
+	color:#454545;
+}
+.activityApply .activityApplyMessage p span
+{
+	width:100px;
+}
+.activityApply .registerBox
+{
+	border-left:1px solid #eee;
+}
+.activityApply .registerBtn
+{
+	margin-top:25px;
+}
+
+.activityMessage
+{
+	width:718px;
+	border:1px solid #eee;
+	border-top:none;
+	border-bottom:1px dashed #eee;
+	padding:10px;
+	background:#fafafa;
+}
+.activityMessage ul
+{
+	width:100%;
+}
+.activityMessage ul li
+{
+	width:50%;
+	line-height:30px;
+	font-size:14px;
+	color:#454545;
+}
+
+.activityDetail .activityDetailTitle
+{
+	background:#fff;
+	border:1px solid #eee;
+	width:738px;
+}

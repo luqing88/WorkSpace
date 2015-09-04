@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" class="">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>福瑞丰园</title>
+<meta name="keywords" content="土鸡、土鸡蛋、初生蛋、跑山鸡、跑地鸡">
+<meta name="description" content="土鸡、土鸡蛋、初生蛋、跑山鸡、跑地鸡">
+<link rel="shortcut icon" href="favicon.ico">
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet"
+	href="js/fancybox/jquery.fancybox.css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/fancybox/jquery.fancybox.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<!--[if lte IE 6]>
+<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a.js"></script>
+<script type="text/javascript">DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="css/index3.css">
+<link type="text/css" rel="stylesheet" href="css/activity.css">
+<style type="text/css">
+.fancybox-margin {
+	margin-right: 17px;
+}
+</style>
+</head>
+
+<body>
+	<div id="totop" style="display: none;">
+		<a>&nbsp;</a>
+	</div>
+	<div class="header">
+		<div class="box clear">
+			<!--logo-->
+			<div class="floatLeft logo">
+				<a href="/" hidefocus="true"><img src="image/icon/logo.jpg"
+					width="72" height="72" title="放心食材实福瑞丰园" alt="放心食材福瑞丰园"></a>
+			</div>
+			<!--end logo-->
+			<!--导航-->
+			<div class="floatLeft headerRight clear">
+				<div class="floatRight clear">
+					<!--头部导航-->
+					<div class="headerTopNav clear">
+						<ul class="floatRight clear">
+							<li class="floatLeft"><span>客服热线：<em>400-028-1719</em></span></li>
+							<li class="floatLeft">
+								<!--  -->
+							</li>
+							<li class="floatLeft">
+								<!-- 
+              <a href="http://www.yidiantian.com/gift.html" class="cardLink" hidefocus="true">卡券兑换</a>
+              -->
+							</li>
+							<li class="floatLeft headerCartBox"><a
+								href="javascript:void(0)" class="cartLink" hidefocus="true">您的购物车中有<em
+									id="header_top_cart_num">0</em>件商品
+							</a> <!--购物车-->
+								<div class="headerCart" style="display: none;">
+									<div class="headerCartTop"></div>
+									<div class="headerCartCon" id="header_top_cart">
+										<div id="header_top_cart_items" class="headerCartConSlider">
+
+										</div>
+										<div class="headerCartCount">
+											小计：<span>￥0.00</span>
+										</div>
+										<div class="headerCartBtn">
+											<a href="javascript:void(0)" class="orangeBtn orangeBtn30"
+												hidefocus="true">去购物车结算<i class="icon_arrow_mini">&nbsp;</i></a>
+										</div>
+
+									</div>
+									<div class="headerCartFooter"></div>
+								</div> <!--end 购物车--></li>
+						</ul>
+					</div>
+					<!--end 头部导航-->
+					<!--网站导航-->
+					<div class="headerNav clear">
+						<ul class="floatRight clear">
+							<li class="floatLeft current"><a href="/" hidefocus="true">首&nbsp;&nbsp;页</a></li>
+							<li class="floatLeft"><a href="javascript:void(0)"
+								hidefocus="true">农场体验</a></li>
+							<li class="floatLeft"><a href="javascript:void(0)"
+								hidefocus="true">宅配套餐</a></li>
+							<li class="floatLeft"><a href="javascript:void(0)"
+								hidefocus="true">商城</a></li>
+							<li class="floatLeft"><a href="javascript:void(0)"
+								hidefocus="true">礼品专区</a></li>
+							<li class="floatLeft"><a href="javascript:void(0)"
+								hidefocus="true">农场活动</a></li>
+						</ul>
+					</div>
+					<!--end 网站导航-->
+				</div>
+			</div>
+			<!--end 导航-->
+			<!--会员中心-->
+			<div class="floatRight headerBtnBox">
+				<div class="headerLogin">
+					<a href="javascript:void(0)" hidefocus="true">登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a
+						href="javascript:void(0)" hidefocus="true">注册</a>
+				</div>
+				<div id="user_nav" class="userCenterLink">
+					<a href="javascript:void(0)" class="brownBtn brownBtn40"
+						hidefocus="true">会员入口<i class="userCenterArrow">&nbsp;</i></a>
+					<div name="slide_menu" class="userCenterMenu"
+						style="display: none;">
+						<ul class="clear">
+							<li class="floatLeft"><a href="javascript:void(0)"
+								hidefocus="true">我的订单</a></li>
+
+							<li class="floatLeft"><a href="javascript:void(0)"
+								hidefocus="true">在线充值</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--end 会员中心-->
+		</div>
+	</div>
+	<script type="text/javascript">
+$(function()
+{
+    $("#user_nav").slide_menu();
+    $('.headerCartBox>a').mouseenter(function()
+    {
+        if ($('.headerCartBox>.headerCart').is(':visible'))
+        {
+            return false;
+        }
+
+        $('#header_top_cart_items').html('<div class="headerCartConE"><p><img src="image/icon/loading.gif" /></p></div>');
+        $('#header_top_cart .headerCartCount>span').html('0.00');
+    	$('.headerCart').stop().slideDown(function()
+    	{
+    		ydt.cart.load_items();
+    	});
+    	return false;
+    });
+    $('.headerCartBox').mouseleave(function()
+    {
+        $('.headerCart').stop().slideUp();
+        return false;
+    });
+    ydt.cart.update_header_top();
+
+    $('#weibo_iframe').attr('src', 'http://widget.weibo.com/relationship/followbutton.php?language=zh_cn&width=63&height=22&uid=2812465265&style=1&btn=red&dpc=1');
+});
+</script>
+	<div class="banner _banner_container_">
+		<!--广告图列表-->
+		<div class="_data_list_ bannerBox">
+			<div class="bannerCon" style="margin-left: -2660px;">
+				<ul class="bannerList clear" style="width: 6840px; left: 0px;">
+
+					<li class="floatLeft current"><a href="javascript:void(0);"
+						target="_blank" class="pic" hidefocus="true"><img
+							src="http://s1.yidiantian.com/uploads/20150707/19/ca/a25fa409a40f0dda890bd2ca4957ddbd.jpg"
+							style="width: 740px; height: 300px;"></a>
+						<div class="bannerOpa"></div></li>
+					<li class="floatLeft"><a href="javascript:void(0);"
+						target="_blank" class="pic" hidefocus="true"><img
+							src="http://s1.yidiantian.com/uploads/20150506/a2/ef/4db67f4c3a88d144c39be81754bbaa21.jpg"
+							style="width: 740px; height: 300px;"></a>
+						<div class="bannerOpa"></div></li>
+					<li class="floatLeft"><a href="javascript:void(0);"
+						target="_blank" class="pic" hidefocus="true"><img
+							src="http://s1.yidiantian.com/uploads/20150714/b5/3b/bd6f680e2af02864c13a8dac0436192e.jpg"
+							style="width: 740px; height: 300px;"></a>
+						<div class="bannerOpa"></div></li>
+
+				</ul>
+			</div>
+			<!--广告图箭头-->
+			<a href="javascript:void(0);" class="_switch_prev_ ADArrow LADArrow"
+				title="上一张" hidefocus="true" style="left: 243.5px;">上一张</a> <a
+				href="javascript:void(0);" class="_switch_next_ ADArrow RADArrow"
+				title="下一张" hidefocus="true" style="right: 243.5px;">下一张</a>
+			<!--end 广告图箭头-->
+		</div>
+		<!--end 广告图列表-->
+		<!--广告图跳转小按钮-->
+		<div class="_pager_list_ btnBox box">
+			<div class="btnCon clear">
+				<ul class="btnList clear floatLeft">
+				</ul>
+			</div>
+		</div>
+		<!--end 广告图跳转小按钮-->
+	</div>
+	<!--end banner-->
+
+	<!--最幸福的鸡-->
+	<div class="ygsl poster">
+		<div class="box clear">
+			<div class=" floatRight posterTxt marginRight10">
+				<h3>最幸福的鸡</h3>
+				<h1>
+					<a href="javascript:void(0);" hidefocus="true">我只吃虫子和<br>蔬菜<br>我拒绝速成
+					</a>
+				</h1>
+				<p>不用上班打卡，每天天亮伸个懒腰去地上吃肥肥虫，静静躺在地上沐浴着阳光，呼吸着山林的氧气，吃着没有农药残留的特供青菜，不愿当房奴喜欢住乡下，虽然长得很土，蛋“求”无愧于心。</p>
+				<a href="javascript:void(0);" class="orangeLineBtn orangeLineBtn30"
+					hidefocus="true">农场详情</a>
+			</div>
+		</div>
+	</div>
+	<!--end 最幸福的鸡-->
+
+	<!--纯天然的蔬菜-->
+	<div class="xjy poster">
+		<div class="box clear">
+			<div class=" floatLeft posterTxt marginLeft10">
+				<h3>纯天然的蔬菜</h3>
+				<h1>
+					<a href="javascript:void(0);" hidefocus="true">我源自天然纯净<br>的农场<br>我拒绝农药
+					</a>
+				</h1>
+				<p>常年种植超过200个蔬菜品种。我们倡导自然健康的生活方式，在种植过程中施用有机肥，不用农药和激素，不种植反季节作物。</p>
+				<a href="javascript:void(0);" class="orangeLineBtn orangeLineBtn30"
+					hidefocus="true">农场详情</a>
+			</div>
+		</div>
+	</div>
+	<!--end 纯天然的蔬菜-->
+
+	<!--奇源农场-->
+	<div class="qy poster">
+		<div class="box clear">
+			<div class=" floatRight posterTxt marginRight10">
+				<h3>奇源农场</h3>
+				<h1>
+					<a href="javascript:void(0);" hidefocus="true">我爱吃粮食<br>爱运动<br>我是生态粮食猪
+					</a>
+				</h1>
+				<p>农场粮食猪以玉米、糠豆、青菜等天然健康饲料为食促进生长，以党参、当归、陈皮等中草药为料强健身体，不含有任何添加剂。</p>
+				<a href="javascript:void(0);" class="orangeLineBtn orangeLineBtn30"
+					hidefocus="true">农场详情</a>
+			</div>
+		</div>
+	</div>
+	<!--end 奇源农场-->
+	<!--最新活动-->
+	<div class="indexActivity _event_container_">
+		<div class="indexActivityT box">
+			<a href="javascript:void(0);"
+				class="_switch_prev_ activityArrow LActivityArrow" title="上一页"
+				hidefocus="true">&nbsp;</a> <a href="javascript:void(0);"
+				class="_switch_next_ activityArrow RActivityArrow" title="下一页"
+				hidefocus="true">&nbsp;</a>
+			<div class="indexActivityTCon">
+				<dl>
+					<dt>农场活动</dt>
+					<dd>
+						<a href="javascript:void(0);"
+							class="orangeLineBtn orangeLineBtn24" hidefocus="true">更多活动»</a>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<!--活动列表-->
+		<div class="box indexActivityBox">
+			<div class="activityList">
+				<ul class="_data_list_ clear" style="width: 3051px;">
+					<li class="floatLeft">
+						<dl>
+							<dt>
+								<a href="javascript:void(0);" class="opacityA" hidefocus="true"><img
+									src="http://s1.yidiantian.com/content/event/0672ea3cba77297a6c30ccdfef0b1cb7_m.jpg"
+									width="310" height="160"></a>
+							</dt>
+							<dd>
+								<h3 class="clear">
+									<a href="javascript:void(0);" class="floatLeft"
+										hidefocus="true">川师附小2年级3班福瑞丰园春耕拓展活动</a> <span
+										class="floatRight activityIcon" title="已结束">已结束</span>
+								</h3>
+								<p class="activityTime clear">
+									<span class="floatLeft">时间：2015-03-28 周六</span> <span
+										class="floatRight">66人参与</span>
+								</p>
+								<p>福瑞丰园生态农场春耕拓展活动</p>
+							</dd>
+						</dl>
+					</li>
+					<li class="floatLeft">
+						<dl>
+							<dt>
+								<a href="javascript:void(0);" class="opacityA" hidefocus="true"><img
+									src="http://s1.yidiantian.com/content/event/f1bb2e96a13ddd15cc760c1d8270f425_m.jpg"
+									width="310" height="160"></a>
+							</dt>
+							<dd>
+								<h3 class="clear">
+									<a href="javascript:void(0);" class="floatLeft"
+										hidefocus="true">孩子王2015福瑞丰园生态农场踏春亲子活动</a> <span
+										class="floatRight activityIcon" title="已结束">已结束</span>
+								</h3>
+								<p class="activityTime clear">
+									<span class="floatLeft">时间：2015-03-22 周日</span> <span
+										class="floatRight">107人参与</span>
+								</p>
+								<p>3月22日，孩子王6个门店的孩子们报名参加了福瑞丰园生态农场“2015踏春亲子游”活动。</p>
+							</dd>
+						</dl>
+					</li>
+					<li class="floatLeft">
+						<dl>
+							<dt>
+								<a href="javascript:void(0);" class="opacityA" hidefocus="true"><img
+									src="http://s1.yidiantian.com/content/event/25546dd7b6eb3de9e978448139f3ae7d_m.jpg"
+									width="310" height="160"></a>
+							</dt>
+							<dd>
+								<h3 class="clear">
+									<a href="javascript:void(0);" class="floatLeft"
+										hidefocus="true">柳加职业中学福瑞丰园有机农业专场讲座活…</a> <span
+										class="floatRight activityIcon" title="已结束">已结束</span>
+								</h3>
+								<p class="activityTime clear">
+									<span class="floatLeft">时间：2014-10-25 周六</span> <span
+										class="floatRight">86人参与</span>
+								</p>
+								<p>10月24日-25日，柳加职业中学的学员们来到福瑞丰园农场，参加为期两天的有机农业培训专场，来自宝岛台湾的有机农业践行者及专家蔡老师…</p>
+							</dd>
+						</dl>
+					</li>
+					<li class="floatLeft">
+						<dl>
+							<dt>
+								<a href="javascript:void(0);" class="opacityA" hidefocus="true"><img
+									src="http://s1.yidiantian.com/content/event/40d3befeae2952e53ce46ccb42a38a33_m.jpg"
+									width="310" height="160"></a>
+							</dt>
+							<dd>
+								<h3 class="clear">
+									<a href="javascript:void(0);" class="floatLeft"
+										hidefocus="true">嘉祥外国语学校初2016级20班拓展活动</a> <span
+										class="floatRight activityIcon" title="已结束">已结束</span>
+								</h3>
+								<p class="activityTime clear">
+									<span class="floatLeft">时间：2014-10-19 周日</span> <span
+										class="floatRight">90人参与</span>
+								</p>
+								<p>福瑞丰园生态农场的11月，并未因最近天气忽而转凉而变得清冷，反而伴随着10月刚刚结束的一系列幼儿园、中小学生及有机农业知识专题培训活动逐…</p>
+							</dd>
+						</dl>
+					</li>
+					<li class="floatLeft">
+						<dl>
+							<dt>
+								<a href="javascript:void(0);" class="opacityA" hidefocus="true"><img
+									src="http://s1.yidiantian.com/content/event/6848e25b696d5b9bb19873f5ef1b1c85_m.jpg"
+									width="310" height="160"></a>
+							</dt>
+							<dd>
+								<h3 class="clear">
+									<a href="javascript:void(0);" class="floatLeft"
+										hidefocus="true">益州小学2年级4班福瑞丰园农场亲子活动</a> <span
+										class="floatRight activityIcon" title="已结束">已结束</span>
+								</h3>
+								<p class="activityTime clear">
+									<span class="floatLeft">时间：2014-10-19 周日</span> <span
+										class="floatRight">75人参与</span>
+								</p>
+								<p>福瑞丰园生态农场活动</p>
+							</dd>
+						</dl>
+					</li>
+					<li class="floatLeft">
+						<dl>
+							<dt>
+								<a href="javascript:void(0);" class="opacityA" hidefocus="true"><img
+									src="http://s1.yidiantian.com/content/event/db11178ada72d992e8a4880eb4df8edd_m.jpg"
+									width="310" height="160"></a>
+							</dt>
+							<dd>
+								<h3 class="clear">
+									<a href="javascript:void(0);" class="floatLeft"
+										hidefocus="true">成华小学2年级8班福瑞丰园亲子农耕活动</a> <span
+										class="floatRight activityIcon" title="已结束">已结束</span>
+								</h3>
+								<p class="activityTime clear">
+									<span class="floatLeft">时间：2014-10-19 周日</span> <span
+										class="floatRight">51人参与</span>
+								</p>
+								<p>福瑞丰园生态农场亲子农耕活动。10月19日，来自成华小学2年级8班的孩子们来到了福瑞丰园农场，和爸爸妈妈们一起体验农耕生活、进行亲子拓…</p>
+							</dd>
+						</dl>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--end 活动列表-->
+		<!--广告图跳转小按钮-->
+		<div class="btnBox box">
+			<div class="btnCon clear">
+				<ul class="_pager_list_ btnList clear floatLeft">
+					<li class="floatLeft current"><a href="javascript:void(0);">1</a></li>
+					<li class="floatLeft"><a href="javascript:void(0);">2</a></li>
+					<li class="floatLeft"><a href="javascript:void(0);">3</a></li>
+				</ul>
+			</div>
+		</div>
+		<!--end 广告图跳转小按钮-->
+	</div>
+	<!--end 最新活动-->
+
+	<!--礼品-->
+	<div class="lp poster">
+		<div class="box clear">
+			<div class=" floatLeft posterTxt marginLeft10">
+				<h3>福瑞丰园有机礼盒</h3>
+				<h1>
+					<a href="javascript:void(0);" hidefocus="true">我是有机礼品<br>走亲访友<br>我时尚健康
+					</a>
+				</h1>
+				<p>福瑞丰园为您提供多种礼品组合，包括放养土鸡、初生蛋、土鸡蛋、生态蔬菜等放心食材，是走亲访友、员工福利、商务赠礼的时尚健康首选。</p>
+				<a href="javascript:void(0);" class="orangeLineBtn orangeLineBtn30"
+					hidefocus="true">更多礼品</a>
+			</div>
+		</div>
+	</div>
+	<!--end 礼品-->
+
+	<!--宅配服务-->
+	<div class="zpfw poster">
+		<div class="box clear">
+			<div class="posterTxt">
+				<h3>福瑞丰园家庭配送服务</h3>
+				<h1>
+					<a href="javascript:void(0);" hidefocus="true">我从田间到餐桌&nbsp;配送到家<br>我安全放心
+					</a>
+				</h1>
+				<p>福瑞丰园家庭配送服务，提供农场自产放心蔬菜，粮食放养土鸡、土鸡蛋等。成都市区均可配送到家。</p>
+				<a href="javascript:void(0);" class="orangeLineBtn orangeLineBtn30"
+					hidefocus="true">配送信息</a>
+			</div>
+			<div class="psfwPic">
+				<img src="image/icon/psfw2.png">
+			</div>
+		</div>
+	</div>
+	<!--end 宅配服务-->
+
+	<!--鲜活家禽-->
+	<div class="proList">
+		<div class="box">
+			<h3 class="clear proListT">
+				<span class="floatLeft">鲜活家禽</span><a href="javascript:void(0);"
+					class=" orangeLineBtn orangeLineBtn24 floatRight" hidefocus="true">更多家禽»</a>
+			</h3>
+		</div>
+		<div class="box clear">
+			<!--鲜活家禽-->
+			<div class="productListBox">
+				<ul class="productList clear">
+					<li class="floatLeft productListItem clear"><a
+						href="javascript:void(0);" target="_blank"
+						class="productListItemImg opacityA" title="蛋鸡" hidefocus="true">
+							<img src="image/fowl/danji.jpg" alt="蛋鸡">
+					</a>
+						<h4>
+							<a href="javascript:void(0);" target="_blank" title="蛋鸡"
+								hidefocus="true">蛋鸡</a>
+						</h4>
+
+						<div class="productListItemPrice clear">
+							<span class="floatLeft price">零售价：￥<span class="numeral">12.00</span></span>
+						</div> <a href="javascript:void(0);" goods_id="209"
+						class="productListItemCart" hidefocus="true">加入购物车</a></li>
+					<li class="floatLeft productListItem clear"><a
+						href="javascript:void(0);" target="_blank"
+						class="productListItemImg opacityA" title="家鹅" hidefocus="true">
+							<img src="image/fowl/er.jpg" alt="家鹅">
+					</a>
+						<h4>
+							<a href="javascript:void(0);" target="_blank" title="蛋鸡"
+								hidefocus="true">家鹅</a>
+						</h4>
+
+						<div class="productListItemPrice clear">
+							<span class="floatLeft price">零售价：￥<span class="numeral">12.00</span></span>
+						</div> <a href="javascript:void(0);" goods_id="165"
+						class="productListItemCart" hidefocus="true">加入购物车</a></li>
+					<li class="floatLeft productListItem clear"><a
+						href="javascript:void(0);" target="_blank"
+						class="productListItemImg opacityA" title="火鸡" hidefocus="true">
+							<img src="image/fowl/huoji.jpg" alt="火鸡">
+					</a>
+						<h4>
+							<a href="javascript:void(0);" target="_blank" title="火鸡"
+								hidefocus="true">火鸡</a>
+						</h4>
+
+						<div class="productListItemPrice clear">
+							<span class="floatLeft price">零售价：￥<span class="numeral">12.00</span></span>
+						</div> <a href="javascript:void(0);" goods_id="144"
+						class="productListItemCart" hidefocus="true">加入购物车</a></li>
+					<li class="floatLeft productListItem clear"><a
+						href="javascript:void(0);" target="_blank"
+						class="productListItemImg opacityA" title="猪" hidefocus="true">
+							<img src="image/fowl/pig.jpg" alt="猪">
+					</a>
+						<h4>
+							<a href="javascript:void(0);" target="_blank" title="糯玉米"
+								hidefocus="true">猪</a>
+						</h4>
+
+						<div class="productListItemPrice clear">
+							<span class="floatLeft price">零售价：￥<span class="numeral">12.00</span></span>
+						</div> <a href="javascript:void(0);" goods_id="208"
+						class="productListItemCart" hidefocus="true">加入购物车</a></li>
+					<li class="floatLeft productListItem clear"><a
+						href="javascript:void(0);" target="_blank"
+						class="productListItemImg opacityA" title="肉羊" hidefocus="true">
+							<img src="image/fowl/rouyang.jpg" alt="肉羊">
+					</a>
+						<h4>
+							<a href="javascript:void(0);" target="_blank" title="肉羊"
+								hidefocus="true">肉羊</a>
+						</h4>
+
+						<div class="productListItemPrice clear">
+							<span class="floatLeft price">零售价：￥<span class="numeral">12.00</span></span>
+						</div> <a href="javascript:void(0);" goods_id="174"
+						class="productListItemCart" hidefocus="true">加入购物车</a></li>
+					<li class="floatLeft productListItem clear"><a
+						href="javascript:void(0);" target="_blank"
+						class="productListItemImg opacityA" title="土鸡" hidefocus="true">
+							<img src="image/fowl/tuji.jpg" alt="土鸡">
+					</a>
+						<h4>
+							<a href="javascript:void(0);" target="_blank" title="土鸡"
+								hidefocus="true">土鸡</a>
+						</h4>
+
+						<div class="productListItemPrice clear">
+							<span class="floatLeft price">零售价：￥<span class="numeral">12.00</span></span>
+						</div> <a href="javascript:void(0);" goods_id="11"
+						class="productListItemCart" hidefocus="true">加入购物车</a></li>
+					<li class="floatLeft productListItem clear"><a
+						href="javascript:void(0);" target="_blank"
+						class="productListItemImg opacityA" title="兔子" hidefocus="true">
+							<img src="image/fowl/tuzi.jpg" alt="兔子">
+					</a>
+						<h4>
+							<a href="javascript:void(0);" target="_blank" title="兔子"
+								hidefocus="true">兔子</a>
+						</h4>
+
+						<div class="productListItemPrice clear">
+							<span class="floatLeft price">零售价：￥<span class="numeral">12.00</span></span>
+						</div> <a href="javascript:void(0);" goods_id="143"
+						class="productListItemCart" hidefocus="true">加入购物车</a></li>
+					<li class="floatLeft productListItem clear"><a
+						href="javascript:void(0);l" target="_blank"
+						class="productListItemImg opacityA" title="鸭子" hidefocus="true">
+							<img src="image/fowl/yazi.jpg" alt="鸭子">
+					</a>
+						<h4>
+							<a href="javascript:void(0);" target="_blank" title="鸭子"
+								hidefocus="true">鸭子</a>
+						</h4>
+
+						<div class="productListItemPrice clear">
+							<span class="floatLeft price">零售价：￥<span class="numeral">12.00</span></span>
+						</div> <a href="javascript:void(0);" goods_id="160"
+						class="productListItemCart" hidefocus="true">加入购物车</a></li>
+				</ul>
+				<!--end 鲜活家禽-->
+			</div>
+		</div>
+	</div>
+	<!--鲜活家禽-->
+
+	<!--商品列表-->
+	<div class="proList">
+		<div class="box">
+			<h3 class="clear proListT">
+				<span class="floatLeft">时令食材</span><a href="javascript:void(0);"
+					class=" orangeLineBtn orangeLineBtn24 floatRight" hidefocus="true">更多菜品»</a>
+			</h3>
+		</div>
+		<div class="box clear">
+			<!--蔬菜瓜果-->
+			<div class="productListBox">
+				<ul class="productList clear">
+					<li class="floatLeft productListItem clear"><a
+						href="javascript:void(0);" target="_blank"
+						class="productListItemImg opacityA" title="水果番茄" hidefocus="true">
+							<img
+							src="http://s1.yidiantian.com/content/goods/4653a116e4436f9ebd9320fffb3da9ef_b.jpg"
+							alt="水果番茄">
+					</a>
+						<h4>
+							<a href="javascript:void(0);" target="_blank" title="水果番茄"
+								hidefocus="true">水果番茄</a>
+						</h4>
+
+						<div class="productListItemPrice clear">
+							<span class="floatLeft price">零售价：￥<span class="numeral">12.00</span></span>
+						</div> <a href="javascript:void(0);" goods_id="209"
+						class="productListItemCart" hidefocus="true">加入购物车</a></li>
+					<li class="floatLeft productListItem clear"><a
+						href="javascript:void(0);" target="_blank"
+						class="productListItemImg opacityA" title="番茄" hidefocus="true">
+							<img
+							src="http://s1.yidiantian.com/content/goods/f3f118c21d45b233ec8f594d82b11899_b.jpg"
+							alt="番茄">
+					</a>
+						<h4>
+							<a href="javascript:void(0);" target="_blank" title="番茄"
+								hidefocus="true">番茄</a>
+						</h4>
+
+						<div class="productListItemPrice clear">
+							<span class="floatLeft price">零售价：￥<span class="numeral">12.00</span></span>
+						</div> <a href="javascript:void(0);" goods_id="165"
+						class="productListItemCart" hidefocus="true">加入购物车</a></li>
+					<li class="floatLeft productListItem clear"><a
+						href="javascript:void(0);" target="_blank"
+						class="productListItemImg opacityA" title="豇豆" hidefocus="true">
+							<img
+							src="http://s1.yidiantian.com/content/goods/8fd972f4721d98768c562a41dea6201a_b.jpg"
+							alt="豇豆">
+					</a>
+						<h4>
+							<a href="javascript:void(0);" target="_blank" title="豇豆"
+								hidefocus="true">豇豆</a>
+						</h4>
+
+						<div class="productListItemPrice clear">
+							<span class="floatLeft price">零售价：￥<span class="numeral">12.00</span></span>
+						</div> <a href="javascript:void(0);" goods_id="144"
+						class="productListItemCart" hidefocus="true">加入购物车</a></li>
+					<li class="floatLeft productListItem clear"><a
+						href="javascript:void(0);" target="_blank"
+						class="productListItemImg opacityA" title="糯玉米" hidefocus="true">
+							<img
+							src="http://s1.yidiantian.com/cover/goods/59b2c5a2a97c18d9c36376961fc76dcf_b.jpg"
+							alt="糯玉米">
+					</a>
+						<h4>
+							<a href="javascript:void(0);" target="_blank" title="糯玉米"
+								hidefocus="true">糯玉米</a>
+						</h4>
+
+						<div class="productListItemPrice clear">
+							<span class="floatLeft price">零售价：￥<span class="numeral">12.00</span></span>
+						</div> <a href="javascript:void(0);" goods_id="208"
+						class="productListItemCart" hidefocus="true">加入购物车</a></li>
+					<li class="floatLeft productListItem clear"><a
+						href="javascript:void(0);" target="_blank"
+						class="productListItemImg opacityA" title="白地瓜" hidefocus="true">
+							<img
+							src="http://s1.yidiantian.com/content/goods/9e4fbb1ef810920ec1361e2905f640b3_b.jpg"
+							alt="白地瓜">
+					</a>
+						<h4>
+							<a href="javascript:void(0);" target="_blank" title="白地瓜"
+								hidefocus="true">白地瓜</a>
+						</h4>
+
+						<div class="productListItemPrice clear">
+							<span class="floatLeft price">零售价：￥<span class="numeral">12.00</span></span>
+						</div> <a href="javascript:void(0);" goods_id="174"
+						class="productListItemCart" hidefocus="true">加入购物车</a></li>
+					<li class="floatLeft productListItem clear"><a
+						href="javascript:void(0);" target="_blank"
+						class="productListItemImg opacityA" title="甜根菜" hidefocus="true">
+							<img
+							src="http://s1.yidiantian.com/cover/goods/12364654ecce5319f4a6fb493aa80f18_b.jpg"
+							alt="甜根菜">
+					</a>
+						<h4>
+							<a href="javascript:void(0);" target="_blank" title="甜根菜"
+								hidefocus="true">甜根菜</a>
+						</h4>
+
+						<div class="productListItemPrice clear">
+							<span class="floatLeft price">零售价：￥<span class="numeral">12.00</span></span>
+						</div> <a href="javascript:void(0);" goods_id="11"
+						class="productListItemCart" hidefocus="true">加入购物车</a></li>
+					<li class="floatLeft productListItem clear"><a
+						href="javascript:void(0);" target="_blank"
+						class="productListItemImg opacityA" title="平头甘蓝" hidefocus="true">
+							<img
+							src="http://s1.yidiantian.com/content/goods/4e9cd2141a4e2535f5b6543edbcaf872_b.jpg"
+							alt="平头甘蓝">
+					</a>
+						<h4>
+							<a href="javascript:void(0);" target="_blank" title="平头甘蓝"
+								hidefocus="true">平头甘蓝</a>
+						</h4>
+
+						<div class="productListItemPrice clear">
+							<span class="floatLeft price">零售价：￥<span class="numeral">12.00</span></span>
+						</div> <a href="javascript:void(0);" goods_id="143"
+						class="productListItemCart" hidefocus="true">加入购物车</a></li>
+					<li class="floatLeft productListItem clear"><a
+						href="javascript:void(0);l" target="_blank"
+						class="productListItemImg opacityA" title="台湾圆筒丝瓜"
+						hidefocus="true"> <img
+							src="http://s1.yidiantian.com/content/goods/edab1e8903dbee02bc815fbe28d7a279_b.jpg"
+							alt="台湾圆筒丝瓜">
+					</a>
+						<h4>
+							<a href="javascript:void(0);" target="_blank" title="台湾圆筒丝瓜"
+								hidefocus="true">台湾圆筒丝瓜</a>
+						</h4>
+
+						<div class="productListItemPrice clear">
+							<span class="floatLeft price">零售价：￥<span class="numeral">12.00</span></span>
+						</div> <a href="javascript:void(0);" goods_id="160"
+						class="productListItemCart" hidefocus="true">加入购物车</a></li>
+				</ul>
+				<!--end 蔬菜瓜果-->
+			</div>
+		</div>
+	</div>
+	<!--end 商品列表-->
+	<!-- 绿化苗木 -->
+	<div class="proList">
+		<div class="box">
+			<h3 class="clear proListT">
+				<span class="floatLeft">绿化苗木</span><a href="javascript:void(0);"
+					class=" orangeLineBtn orangeLineBtn24 floatRight" hidefocus="true">更多苗木»</a>
+			</h3>
+		</div>
+		<div class="box clear">
+			<!--蔬菜瓜果-->
+			<div class="productListBox">
+				<ul class="productList clear">
+					<li class="floatLeft productListItem clear"><a
+						href="javascript:void(0);" target="_blank"
+						class="productListItemImg opacityA" title="红豆杉" hidefocus="true">
+							<img src="image/tree/1.jpg" alt="红豆杉">
+					</a>
+						<h4>
+							<a href="javascript:void(0);" target="_blank" title="红豆杉"
+								hidefocus="true">红豆杉</a>
+						</h4>
+
+						<div class="productListItemPrice clear">
+							<span class="floatLeft price">零售价：￥<span class="numeral">12.00</span></span>
+						</div> <a href="javascript:void(0);" goods_id="209"
+						class="productListItemCart" hidefocus="true">加入购物车</a></li>
+					<li class="floatLeft productListItem clear"><a
+						href="javascript:void(0);" target="_blank"
+						class="productListItemImg opacityA" title="红叶枫" hidefocus="true">
+							<img src="image/tree/2.jpg" alt="红叶枫">
+					</a>
+						<h4>
+							<a href="javascript:void(0);" target="_blank" title="红叶枫"
+								hidefocus="true">红叶枫</a>
+						</h4>
+
+						<div class="productListItemPrice clear">
+							<span class="floatLeft price">零售价：￥<span class="numeral">12.00</span></span>
+						</div> <a href="javascript:void(0);" goods_id="165"
+						class="productListItemCart" hidefocus="true">加入购物车</a></li>
+					<li class="floatLeft productListItem clear"><a
+						href="javascript:void(0);" target="_blank"
+						class="productListItemImg opacityA" title="红叶石楠" hidefocus="true">
+							<img src="image/tree/3.jpg" alt="红叶石楠">
+					</a>
+						<h4>
+							<a href="javascript:void(0);" target="_blank" title="红叶石楠"
+								hidefocus="true">红叶石楠</a>
+						</h4>
+
+						<div class="productListItemPrice clear">
+							<span class="floatLeft price">零售价：￥<span class="numeral">12.00</span></span>
+						</div> <a href="javascript:void(0);" goods_id="144"
+						class="productListItemCart" hidefocus="true">加入购物车</a></li>
+					<li class="floatLeft productListItem clear"><a
+						href="javascript:void(0);" target="_blank"
+						class="productListItemImg opacityA" title="罗汉松" hidefocus="true">
+							<img src="image/tree/4.jpg" alt="罗汉松">
+					</a>
+						<h4>
+							<a href="javascript:void(0);" target="_blank" title="罗汉松"
+								hidefocus="true">罗汉松</a>
+						</h4>
+
+						<div class="productListItemPrice clear">
+							<span class="floatLeft price">零售价：￥<span class="numeral">12.00</span></span>
+						</div> <a href="javascript:void(0);" goods_id="208"
+						class="productListItemCart" hidefocus="true">加入购物车</a></li>
+					<li class="floatLeft productListItem clear"><a
+						href="javascript:void(0);" target="_blank"
+						class="productListItemImg opacityA" title="广玉兰" hidefocus="true">
+							<img src="image/tree/5.jpg" alt="广玉兰">
+					</a>
+						<h4>
+							<a href="javascript:void(0);" target="_blank" title="广玉兰"
+								hidefocus="true">广玉兰</a>
+						</h4>
+
+						<div class="productListItemPrice clear">
+							<span class="floatLeft price">零售价：￥<span class="numeral">12.00</span></span>
+						</div> <a href="javascript:void(0);" goods_id="174"
+						class="productListItemCart" hidefocus="true">加入购物车</a></li>
+					<li class="floatLeft productListItem clear"><a
+						href="javascript:void(0);" target="_blank"
+						class="productListItemImg opacityA" title="银杏" hidefocus="true">
+							<img src="image/tree/6.jpg" alt="银杏">
+					</a>
+						<h4>
+							<a href="javascript:void(0);" target="_blank" title="银杏"
+								hidefocus="true">银杏</a>
+						</h4>
+
+						<div class="productListItemPrice clear">
+							<span class="floatLeft price">零售价：￥<span class="numeral">12.00</span></span>
+						</div> <a href="javascript:void(0);" goods_id="11"
+						class="productListItemCart" hidefocus="true">加入购物车</a></li>
+					<li class="floatLeft productListItem clear"><a
+						href="javascript:void(0);" target="_blank"
+						class="productListItemImg opacityA" title="樱花" hidefocus="true">
+							<img src="image/tree/7.jpg" alt="樱花">
+					</a>
+						<h4>
+							<a href="javascript:void(0);" target="_blank" title="樱花"
+								hidefocus="true">樱花</a>
+						</h4>
+
+						<div class="productListItemPrice clear">
+							<span class="floatLeft price">零售价：￥<span class="numeral">12.00</span></span>
+						</div> <a href="javascript:void(0);" goods_id="143"
+						class="productListItemCart" hidefocus="true">加入购物车</a></li>
+					<li class="floatLeft productListItem clear"><a
+						href="javascript:void(0);" target="_blank"
+						class="productListItemImg opacityA" title="樱花" hidefocus="true">
+							<img src="image/tree/8.jpg" alt="樱花">
+					</a>
+						<h4>
+							<a href="javascript:void(0);" target="_blank" title="樱花"
+								hidefocus="true">樱花</a>
+						</h4>
+
+						<div class="productListItemPrice clear">
+							<span class="floatLeft price">零售价：￥<span class="numeral">12.00</span></span>
+						</div> <a href="javascript:void(0);" goods_id="160"
+						class="productListItemCart" hidefocus="true">加入购物车</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- 绿化苗木  -->
+
+
+	<link rel="stylesheet" type="text/css" href="css/customService.css" />
+	<script type="text/javascript" src="js/jquery.Sonline.js"></script>
+	<script type="text/javascript">
+$(function()
+{
+	$().Sonline({
+		Position:"right",
+		Style:2,
+		Effect:false,
+		DefaultsOpen:false,
+		Tel:"400-028-1719",
+		Qqlist:"2256085989|在线客服"
+	});
+});
+</script>
+	<div class="footer">
+		<div class="box">
+			<!--底部各种连接-->
+			<div class="footerLink clear">
+				<dl class="floatLeft">
+					<dt>关于福瑞丰园</dt>
+					<dd>
+						<ul>
+							<li><a href="/help/1.html?cid=7" hidefocus="true">福瑞丰园缘起</a></li>
+							<li><a href="/help/1.html?cid=8" hidefocus="true">农场介绍</a></li>
+							<li><a href="/help/1.html?cid=9" hidefocus="true">我们的团队</a></li>
+							<li><a href="/help/1.html?cid=11" hidefocus="true">生产标准</a></li>
+							<li><a href="/help/1.html?cid=59" hidefocus="true">联系我们</a></li>
+						</ul>
+					</dd>
+				</dl>
+				<dl class="floatLeft footerGuide">
+					<dt>新手指南</dt>
+					<dd>
+						<ul>
+							<li><a href="javascript:void(0);" hidefocus="true">用户协议</a></li>
+						</ul>
+					</dd>
+				</dl>
+				<dl class="floatLeft footerDelivery">
+					<dt>配送服务</dt>
+					<dd>
+						<ul>
+							<li><a href="javascript:void(0);" hidefocus="true">配送范围</a></li>
+							<li><a href="javascript:void(0);" hidefocus="true">配送方式</a></li>
+							<li><a href="javascript:void(0);" hidefocus="true">配送费用</a></li>
+						</ul>
+					</dd>
+
+
+				</dl>
+				<dl class="floatLeft footerAfterSale">
+					<dt>售后服务</dt>
+					<dd>
+						<ul>
+							<li><a href="javascript:void(0);" hidefocus="true">退换货政策</a></li>
+							<li><a href="javascript:void(0);" hidefocus="true">退款说明</a></li>
+							<li><a href="javascript:void(0);" hidefocus="true">投诉建议</a></li>
+						</ul>
+					</dd>
+
+
+				</dl>
+				<dl class="floatLeft footerWeixin">
+					<dt>
+						<div class="footerWeixinT">
+							<p>
+								<i class="weixinIcon">&nbsp;</i>微信扫一扫
+							</p>
+							<p class="slogan">最新优惠&nbsp;&nbsp;在线点菜</p>
+						</div>
+					</dt>
+					<dd>
+						<img src="image/icon/weixinerweima.jpg">
+					</dd>
+				</dl>
+			</div>
+			<!--end 底部各种连接-->
+			<!--底部优势-->
+			<div class="footerSuperiority">&nbsp;</div>
+			<!--end 底部优势-->
+			<!--底部电话微博-->
+			<div class="footerContact clear">
+				<dl class="footerPhone floatLeft clear">
+					<dt class="floatLeft"></dt>
+					<dd class="floatLeft">
+						<p class="footerPhoneTime">客服热线(全年09：00-19:00)</p>
+						<p class="footerPhoneNum">400-028-1719</p>
+					</dd>
+				</dl>
+				<dl class="footerWeibo floatLeft clear">
+					<dt class="floatLeft"></dt>
+					<dd class="floatLeft">
+						<a href="http://e.weibo.com/ydtnc" target="_blank"
+							hidefocus="true">@福瑞丰园</a>
+					</dd>
+				</dl>
+			</div>
+			<!--end 底部电话微博-->
+			<!--底部版权-->
+			<p class="copyRight">版权所有 © 福瑞丰园</p>
+			<!--end 底部版权-->
+		</div>
+	</div>
+	<script type="text/javascript">
+$(function()
+{
+    $('._banner_container_').switch_banner();
+    $('._event_container_').switch_event();
+
+    $('.productList').on('mouseenter', '.productListItemCart', function()
+    {
+        $(this).stop().animate({'right':0}, 200);
+    })
+    .on('mouseleave', '.productListItemCart', function()
+    {
+        $(this).stop().animate({'right':-85}, 300);
+    })
+	.on('click', '.productListItemCart', function()
+	{
+		var goods_id = $(this).attr('goods_id');
+		var add_to_cart = ydt.cart.add({
+            'type': 'market',
+            'item_id': goods_id,
+            'quantity': 1
+        });
+
+        if (add_to_cart === true)
+        {
+            ydt.cart.success_tips();
+        }
+        else
+        {
+        	ydt.error('加入购物车失败：' + add_to_cart);
+        }
+
+        return false;
+	});
+});
+</script>
+
+	<div class="SonlineBox" id="SonlineBox"
+		style="top: 200px; position: fixed; right: 10px; width: 60px; height: 223px;">
+		<div class="openTrigger" style="right: 0px;" title="展开"></div>
+		<div class="contentBox" style="width: 170px; right: -176px;">
+			<div class="closeTrigger" title="关闭"></div>
+			<div class="titleBox">
+				<span>客服中心</span>
+			</div>
+			<div class="listBox">
+				<div class="QQList">
+					<span>在线客服：</span>
+					<div class="ico">
+						<a target="_blank"
+							href="http://wpa.qq.com/msgrd?v=3&amp;uin=2256085989&amp;site=qq&amp;menu=yes"><img
+							border="0" src="http://wpa.qq.com/pa?p=2:2256085989:42"
+							alt="点击这里给我发消息" title="点击这里给我发消息"></a>
+					</div>
+					<div style="clear: both;"></div>
+				</div>
+			</div>
+			<div class="tels">
+				<font class="phone_title">客服热线：</font><span>400-028-1719</span><font
+					class="phone_time">(全年09:00-19:00)</font>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
