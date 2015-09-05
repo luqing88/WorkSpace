@@ -1,0 +1,52 @@
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.furuifengyuan.web.model.Student">
+	<resultMap type="Student" id="student_map">
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="score" property="score" />
+	</resultMap>
+	<sql id="student_sql">
+		name,score
+	</sql>
+	
+	<insert id="insert_student" parameterType="Student">
+		<!-- include 引用可重用的SQL代码段 -->
+		INSERT INTO STUDENT(
+		<include refid="student_sql" />
+		) VALUES(#{name},#{score})
+	</insert>
+	
+	<update id="update_student" parameterType="Student">
+		UPDATE STUDENT SET name=#{name},score=#{score} WHERE id=#{id}
+	</update>
+
+	<delete id="delete_student" parameterType="long">
+		DELETE FROM STUDENT WHERE id=#{id}
+	</delete>
+	
+	<select id="selectAll_student" useCache="false" flushCache="true"
+		resultMap="student_map">
+		SELECT * FROM STUDENT
+	</select>
+	<!-- 使用map传人多个参数 -->
+
+	<select id="selectList_student" useCache="false" flushCache="true"
+		parameterType="map" resultMap="student_map">
+		SELECT * FROM STUDENT LIMIT #{pageNow},#{pageSize}
+	</select>
+
+	<select id="selectById_student" parameterType="long" resultType="Student">
+		SELECT * FROM STUDENT WHERE id= #{id}
+	</select>
+
+	<select id="selectCount_student" resultType="int">
+		SELECT count(*) FROM STUDENT
+	</select>
+
+	<select id="selectByName_student" parameterType="String"
+		resultType="Student">
+		SELECT * FROM STUDENT WHERE name= #{name}
+	</select>
+</mapper>
