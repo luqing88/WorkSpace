@@ -21,8 +21,8 @@
             </list>  
         </property>  
     </bean>  
-   <context:component-scan base-package="com.alibaba.dao" resource-pattern="*Imp.class"/>
-    <context:component-scan base-package="com.alibaba.service"/>
+    <context:component-scan base-package="org.furuifengyuan.web.biz.dao.*" resource-pattern="*Dao.class"/>
+    <context:component-scan base-package="org.furuifengyuan.web.service"/>
 <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
     <property name="driverClassName" value="${driver}" />  
         <property name="url" value="${url}" />  
@@ -35,7 +35,7 @@
 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
     <property name="dataSource" ref="dataSource" /> 
     <property name="configLocation" value="classpath:spring/mybatis.xml" />  
-    <property name="mapperLocations" value="classpath:spring/org/furuifengyuan/web/model/*.xml"/>  
+    <property name="mapperLocations" value="classpath:org/furuifengyuan/web/model/*.xml"/>  
 </bean>
      
     <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
@@ -61,5 +61,5 @@
             <tx:method name="*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
         </tx:attributes>
     </tx:advice>
- 
+
 </beans>
