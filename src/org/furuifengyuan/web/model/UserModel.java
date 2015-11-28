@@ -8,7 +8,7 @@ import java.util.Date;
  */
 public class UserModel implements BaseModel {
 	/**
-	 * 
+	 * ddd
 	 */
 	private static final long serialVersionUID = -5024020884361471432L;
 	private Long id;
