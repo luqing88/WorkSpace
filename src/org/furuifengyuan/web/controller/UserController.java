@@ -4,9 +4,10 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.StringUtils;
 import org.furuifengyuan.web.model.UserModel;
 import org.furuifengyuan.web.service.UserService;
-import org.furuifengyuan.web.util.StringUtil;
+
 import org.furuifengyuan.web.vo.Result;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,17 +22,17 @@ public class UserController {
 	@Resource
 	private UserService userService;
 
-	@RequestMapping(value = { "/login.htm" }, method = { RequestMethod.GET })
+	@RequestMapping(value = { "/login.htm" }, method = { RequestMethod.POST })
 	public String login(Model model, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		String name=request.getParameter("name");
 		String password=request.getParameter("password");
-		if(StringUtil.isNotEmpty(name)&&StringUtil.isNotEmpty(password)){
+		if(StringUtils.isNotBlank(name)&&StringUtils.isNotBlank(password)){
 			UserModel userModel=new UserModel();
 			userModel.setName(name);
 			userModel.setPassword(password);
 			Result<Boolean>result=userService.isLogin(userModel);
-			if(result.isSuccess()){
+			if(result.isSuccess()&&result.getModule()){
 			   model.addAttribute("userName", name);
 			   return "admin/admin";
 			 }
@@ -51,7 +52,7 @@ public class UserController {
 	public @ResponseBody Result<Void> register(
 			@RequestParam(required = true) UserModel userModel)throws Exception {
 		Result<Void>result=new Result<Void>();
-	    Result<Boolean>ret=userService.addUser(userModel);
+	    Result<Void>ret=userService.addUser(userModel);
 	    if(ret.isSuccess()){
 	    	result.setSuccess(true);
 	    }
@@ -65,7 +66,7 @@ public class UserController {
 	public @ResponseBody Result<Void> modify(
 			@RequestParam(required = true) UserModel userModel)throws Exception {
 		Result<Void>result=new Result<Void>();
-		 Result<Boolean>ret=userService.addUser(userModel);
+		 Result<Void>ret=userService.addUser(userModel);
 		    if(ret.isSuccess()){
 		    	result.setSuccess(true);
 		    }

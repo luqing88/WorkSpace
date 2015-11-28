@@ -2,7 +2,7 @@
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
     <appender name="defaultAppender" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="file" value="/dev/yunospass/default.log" />
+        <param name="file" value="/dev/furuifengyuan/default.log" />
         <param name="append" value="true" />
         <param name="maxFileSize" value="50MB" />
         <param name="maxBackupIndex" value="50" />

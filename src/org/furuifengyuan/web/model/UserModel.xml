@@ -1,38 +1,41 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.furuifengyuan.web.model.Student">
-    <!-- 
-	<resultMap type="Student" id="student_map">
+<mapper namespace="org.furuifengyuan.web.model.UserModel">
+ <!-- 
+	<resultMap type="UserModel" id="student_map">
 		<id column="id" property="id" />
 		<result column="name" property="name" />
 		<result column="score" property="score" />
 	</resultMap>
 	<sql id="student_sql">
 		name,score
-	</sql>
-	
-	<insert id="insert_student" parameterType="Student">
-		
-		INSERT INTO STUDENT(
-		<include refid="student_sql" />
-		) VALUES(#{name},#{score})
+	</sql>s
+	 -->  
+	 
+	<insert id="insert_user" parameterType="UserModel">	
+		INSERT INTO FRFY_USER(name,password,role,sex,phone,age,createDate,modifyDate,description,status
+		) VALUES(#{name},#{password},#{role},#{sex},#{phone},#{age},#{createDate},#{modifyDate},#{description},#{status})
 	</insert>
 	
-	<update id="update_student" parameterType="Student">
-		UPDATE STUDENT SET name=#{name},score=#{score} WHERE id=#{id}
+	<update id="update_user" parameterType="UserModel">
+		UPDATE FRFY_USER SET name=#{name},password=#{password},
+		               role=#{role},sex=#{sex},
+		               phone=#{phone},age=#{age},
+		               modifyDate=#{modifyDate},createDate=#{createDate},
+		               description=#{description},status=#{status} WHERE id=#{id}
 	</update>
 
-	<delete id="delete_student" parameterType="long">
-		DELETE FROM STUDENT WHERE id=#{id}
+	<delete id="delete_user" parameterType="long">
+		DELETE FROM FRFY_USER WHERE id=#{id}
 	</delete>
 	
-	<select id="selectAll_student" useCache="false" flushCache="true"
-		resultMap="student_map">
-		SELECT * FROM STUDENT
+	<select id="select_user_name" parameterType="String"
+		resultType="UserModel">
+		SELECT * FROM FRFY_USER WHERE name= #{name}
 	</select>
 
-
+  <!--  
 	<select id="selectList_student" useCache="false" flushCache="true"
 		parameterType="map" resultMap="student_map">
 		SELECT * FROM STUDENT LIMIT #{pageNow},#{pageSize}
