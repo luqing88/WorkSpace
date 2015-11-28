@@ -1,11 +1,7 @@
 package org.furuifengyuan.web.model;
 
 import java.util.Date;
-/**
- * 
- * @author chunlong.lcl
- *
- */
+
 public class UserModel implements BaseModel {
 	/**
 	 * ddd
